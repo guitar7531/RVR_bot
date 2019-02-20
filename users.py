@@ -1,3 +1,6 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from telebot.types import (
 		ReplyKeyboardMarkup,
 		KeyboardButton
