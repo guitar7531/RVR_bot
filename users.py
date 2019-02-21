@@ -183,7 +183,7 @@ class User:
 
 	def get_partner(self, con):
 		try:
-			tmp = self.tmp
+			tmp = self.sex
 		except:
 			return (1, 1)
 		if self.sex == 'male':
