@@ -60,7 +60,6 @@ class User:
 			self.bot.logger.info('New admin logged in: %s' % self.username)
 			
 		else:
-			self.type = 'p'
 			self.excpecting = 'code'
 			self.bot.logger.info('New unknown user: %s' % self.username)
 			self.message(messages['code'])
