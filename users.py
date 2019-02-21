@@ -103,6 +103,7 @@ class User:
 				return
 			if mark < 0 or mark > 5:
 				self.message('Mark must be in range [0, 5]')
+				return
 
 			self.bot.logger.info('New mark from: %s %s - %d' % (self.excpecting ,self.real_name, mark))
 
