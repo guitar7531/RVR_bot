@@ -100,6 +100,7 @@ class User:
 				mark = int(message.text)
 			except:
 				self.message("Wrong mark")
+				return
 			if mark < 0 or mark > 5:
 				self.message('Mark must be in range [0, 5]')
 
@@ -150,9 +151,17 @@ class User:
 				self._start()
 				self.bot.logger.info('Speed dating started!')
 				self.message('Ok')
+			elif command[0] == 'alert':
+				self._alert(' '.join(command[1:]))
+				self.message('Ok')
 			else:
 				self.message('Wrong command')
 			return
+
+	def _alert(self, s):
+		for user in self.bot.users.values():
+			if user.type == 'p':
+				user.message(s)
 
 	def _start(self):
 		for user in self.bot.users.values():
