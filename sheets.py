@@ -76,6 +76,10 @@ class Sheet:
 
 	def update(self, state, pair, circle, marks=None, _from=None):
 		x, y = pair
+		if x > 15:
+			x -= 15
+		if y > 15:
+			y -= 15
 		if state == 'write':
 			b = 1 if _from == 'male' else 2
 			
