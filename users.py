@@ -51,6 +51,7 @@ class User:
 		self.username = user.username
 		self.bot = bot
 		self.code = ''
+		self.type = 'u'
 		self.bot.username2id[user.username] = self.id
 		if self.username in admins:
 			self.type = 'a'
@@ -121,8 +122,9 @@ class User:
 				if self.bot.con == 15:
 					self.message(messages['finish'])
 				else:
-					self.message(messages['next_m'] if self.sex == 'male' else messages['next_f'] % 
-						(self.get_partner(self.bot.con + 1), self.get_partner(self.bot.con + 1)[0]))
+					self.message(messages['next_m'] % 
+                                                (self.bot.order_male2name.get(self.get_partner(self.bot.con + 1), ''), self.get_partner(self.bot.con + 1)[0]) if self.sex == 'male' else messages['next_f'] % 
+						(self.bot.order_male2name.get(self.get_partner(self.bot.con + 1), ''), self.get_partner(self.bot.con + 1)[0]))
 				return
 			return
 
