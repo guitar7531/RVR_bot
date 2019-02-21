@@ -185,8 +185,8 @@ class User:
 			p_order = (self.order + con - 1) % (first_circle_n if self.order <= first_circle_n else max_n)
 			if p_order <= first_circle_n and self.circle == 2:
 				p_order += first_circle_n
-			if self.p_order == first_circle_n:
-				self.p_order = max_n
+			if p_order == first_circle_n:
+				p_order = max_n
 		else:
 			p_order = self.order - con - 1
 			if p_order < 0 or (self.circle == 2 and p_order <= first_circle_n):
