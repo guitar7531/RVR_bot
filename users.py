@@ -183,6 +183,8 @@ class User:
 	def get_partner(self, con):
 		if self.sex == 'male':
 			p_order = (self.order + con - 1) % (first_circle_n if self.order <= first_circle_n else max_n)
+			if p_order <= first_circle_n and self.circle == 2:
+				p_order += first_circle_n
 		else:
 			p_order = self.order - con - 1
 			if p_order < 0 or (self.circle == 2 and p_order <= first_circle_n):
